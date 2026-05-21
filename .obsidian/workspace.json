@@ -184,5 +184,8 @@
     }
   },
   "active": "1a0600192328bbc1",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "apps/backend/src/api/main.py",
+    "apps/backend/src/calendar_engine/engine.py"
+  ]
 }
