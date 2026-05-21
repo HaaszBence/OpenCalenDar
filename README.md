@@ -5,9 +5,14 @@
 git clone 
 ```
 
-
+> for development
 ```bash
-docker-compose -f init.yml up
+docker-compose -f dev_init.yaml up
+```
+
+> for production
+```bash
+docker-compose -f init.yaml up
 ```
 
 ## Connect to the database

@@ -1,4 +1,5 @@
 .venv/
+.obsidian/
 SECRETS/
 *.log
 *.venv

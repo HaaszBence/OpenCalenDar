@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'dev'@'%' IDENTIFIED BY 'dev_password';
+GRANT ALL PRIVILEGES ON opencalendar.* TO 'dev'@'%';
+FLUSH PRIVILEGES;
