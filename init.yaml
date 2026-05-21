@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: docker.io/mysql:8.0-debian
+    container_name: opencalendar-db
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    secrets:
+      - OPENCALENDAR_DB_ROOTPASSWORD
+      - OPENCALENDAR_DB_ADMINPASSWORD
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/OPENCALENDAR_DB_ROOTPASSWORD
+      MYSQL_USER: ocd_admin
+      MYSQL_PASSWORD_FILE: /run/secrets/OPENCALENDAR_DB_ADMINPASSWORD
+      MYSQL_DATABASE: opencalendar
+    command: mysqld
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: opencalendar-phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+
+secrets:
+  OPENCALENDAR_DB_ROOTPASSWORD:
+    file: ./SECRETS/db-root-password.txt
+  OPENCALENDAR_DB_ADMINPASSWORD:
+    file: ./SECRETS/db-admin-password.txt
+
+volumes:
+  mysql_data:
