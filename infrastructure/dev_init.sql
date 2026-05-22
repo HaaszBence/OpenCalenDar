@@ -1,3 +1,3 @@
-CREATE USER IF NOT EXISTS 'dev'@'%' IDENTIFIED BY 'dev_password';
+CREATE USER IF NOT EXISTS 'dev'@'%' IDENTIFIED BY 'dev';
 GRANT ALL PRIVILEGES ON opencalendar.* TO 'dev'@'%';
 FLUSH PRIVILEGES;
